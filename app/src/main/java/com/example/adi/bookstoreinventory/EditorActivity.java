@@ -490,6 +490,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         // Create an EditText for the user to set the amount of books to add
         final EditText quantityEditText = new EditText(this);
         quantityEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        // Set the default amount to add as 10
+        quantityEditText.setText("10");
         // Create an AlertDialog.Builder and set the message, and click listeners
         // for the postivie and negative buttons on the dialog.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
