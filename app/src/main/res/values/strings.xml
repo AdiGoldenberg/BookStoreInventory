@@ -1,0 +1,145 @@
+<resources>
+    <!-- App name -->
+    <string name="app_name">Book Store Inventory</string>
+
+    <!-- Label for overflow menu option that inserts a dummy book to the database -->
+    <string name="action_insert_dummy_data">Insert dummy data</string>
+
+    <!-- Text for the empty list TextView -->
+    <string name="initial_text">Please insert books using the options menu or the button on the bottom.</string>
+
+    <!-- Text for the "sold" button -->
+    <string name="sold">Sold</string>
+
+    <!-- Label for overflow menu option that deletes all book data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Books</string>
+
+    <!-- Book added toast message -->
+    <string name="book_added_toast">Book added.</string>
+
+    <!-- Error adding book toast message -->
+    <string name="error_adding_book_toast">Error adding book.</string>
+
+    <!-- Dialog message to ask the user to confirm deleting all the books [CHAR LIMIT=NONE] -->
+    <string name="delete_all_dialog_msg">Delete all books?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current book [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current book [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Toast message in editor when all books were successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="inventory_delete_books_successful">All books deleted</string>
+
+    <!-- Toast message in editor when deleting all books has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="inventory_delete_books_failed">Error with deleting books</string>
+
+    <string name="price_text">Price</string>
+    <string name="quantity_text">Quantity</string>
+
+    <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_book">Add a Book</string>
+
+    <!-- Title for the activity to edit an existing book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_edit_book">Edit Book</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for price information in the editor [CHAR LIMIT=30] -->
+    <string name="category_price">Price</string>
+
+    <!-- Label for quantity information in the editor [CHAR LIMIT=30] -->
+    <string name="category_quantity">Quantity</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_name">Title</string>
+
+    <!-- Text hint for supplier field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_name">Supplier name</string>
+
+    <!-- Text hint for supplier phone field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_phone">Supplier phone</string>
+
+    <!-- Text hint for price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_price">Price</string>
+
+    <!-- Text for initial quantity in the editor [CHAR LIMIT=3] -->
+    <string name="edit_initial_quantity">0</string>
+
+    <!-- Text for quantity minus button in the editor [CHAR LIMIT=3] -->
+    <string name="edit_minus">-</string>
+
+    <!-- Text for quantity plus button in the editor [CHAR LIMIT=3] -->
+    <string name="edit_plus">+</string>
+
+    <!-- Label for editor menu option to save book and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Units for price of the book (US dollars) [CHAR LIMIT=5] -->
+    <string name="unit_book_price">$</string>
+
+    <!-- No book was saved toast message -->
+    <string name="book_not_saved_toast">No book was saved.</string>
+
+    <!-- Book updated toast message -->
+    <string name="book_updated_toast">Book updated.</string>
+
+    <!-- Error updating book toast message -->
+    <string name="error_updating_book_toast">Error updating book.</string>
+
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current book [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current book [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this book?</string>
+
+    <!-- Toast message in editor when current book was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_book_successful">Book deleted</string>
+
+    <!-- Toast message in editor when current book has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_book_failed">Error with deleting book</string>
+
+    <!-- Toast message in inventory activity saying the quantity successfully updated [CHAR LIMIT=NONE] -->
+    <string name="msg_quantity_successfully_updated">Quantity successfully updated</string>
+
+    <!-- Toast message in inventory activity saying there was an error updating the quantity [CHAR LIMIT=NONE] -->
+    <string name="msg_error_updating_quantity">Error updating quantity</string>
+
+    <!-- Toast message in inventory activity saying there are no more books to sale [CHAR LIMIT=NONE] -->
+    <string name="msg_no_more_books">No more books available. \nConsider ordering more.</string>
+
+    <!-- Dialog message to ask the user by how much to increase the book's quantity [CHAR LIMIT=NONE] -->
+    <string name="increase_quantity_dialog_msg">How many copies of this book to add?</string>
+
+    <!-- Dialog button text for the option to add the amount of books given [CHAR LIMIT=20] -->
+    <string name="add">Add</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current book [CHAR LIMIT=20] -->
+    <string name="none">None</string>
+
+    <!-- Toast message alerting that there is no phone number to dial -->
+    <string name="msg_no_phone_number">Enter a phone number for the supplier.</string>
+
+    <!-- Toast message alerting that there is nothing to delete before saving the book -->
+    <string name="msg_nothing_to_delete">Book not saved yet.</string>
+
+    <!-- Toast message alerting that the user need to input a name before saving the book -->
+    <string name="input_name_error">Enter book name.</string>
+
+    <!-- Toast message alerting that the user need to input a supplier before saving the book -->
+    <string name="input_supplier_error">Enter book supplier.</string>
+
+    <!-- Toast message alerting that the price can't be negative -->
+    <string name="input_price_error">Negative price not allowed.</string>
+
+    <!-- Toast message alerting that the price can't be negative -->
+    <string name="input_quantity_error">Negative quantity not allowed.</string>
+</resources>
