@@ -115,7 +115,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             getLoaderManager().initLoader(BOOK_LOADER, null, this);
             // Update mMode
             mMode = action;
-
             // Setup FAB to delete the entry
             deleteFab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -140,8 +139,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                             getResources().getString(R.string.msg_nothing_to_delete), Toast.LENGTH_LONG).show();
                 }
             });
-            // Set the mQuantityInt to be zero
-            mQuantityInt = 0;
+            // Set the mQuantityInt to be -1
+            mQuantityInt = -1;
         }
 
         // Set the OnTouchListener on the views
@@ -227,8 +226,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         String phoneString = mPhoneEditText.getText().toString().trim();
         String priceString = mPriceEditText.getText().toString().trim();
 
-        // Convert the price string into an int (and set it to 0 if nothing was entered)
-        int priceInt = 0;
+        // Convert the price string into an int (and set it to -1 if nothing was entered)
+        int priceInt = -1;
         if (!TextUtils.isEmpty(priceString)) {
             priceInt = Integer.parseInt(priceString);
         }
@@ -240,8 +239,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         boolean emptyBook = TextUtils.isEmpty(nameString) &&
                 TextUtils.isEmpty(supplierString) &&
                 TextUtils.isEmpty(phoneString) &&
-                priceInt == 0 &&
-                mQuantityInt == 0;
+                priceInt == -1 &&
+                mQuantityInt == -1;
         if (emptyBook) {
             message = getResources().getString(R.string.book_not_saved_toast);
         } else {    // If the user entered any values
@@ -273,6 +272,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                             break;
                         case BookProvider.UPDATE_SUPPLIER_ERROR:
                             message = getResources().getString(R.string.input_supplier_error);
+                            mFinishActivity = false;
+                            break;
+                        case BookProvider.UPDATE_PHONE_ERROR:
+                            message = getResources().getString(R.string.input_phone_error);
                             mFinishActivity = false;
                             break;
                         case BookProvider.UPDATE_PRICE_ERROR:
@@ -307,6 +310,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                                 break;
                             case BookProvider.INSERT_SUPPLIER_ERROR:
                                 message = getResources().getString(R.string.input_supplier_error);
+                                mFinishActivity = false;
+                                break;
+                            case BookProvider.INSERT_PHONE_ERROR:
+                                message = getResources().getString(R.string.input_phone_error);
                                 mFinishActivity = false;
                                 break;
                             case BookProvider.INSERT_PRICE_ERROR:
@@ -357,13 +364,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Create and return a CursorLoader with the CONTENT_URI of a given book
         return new CursorLoader(this, mCurrentBookUri,
-                new String[]{BookEntry._ID,
-                        BookEntry.COLUMN_BOOK_NAME,
-                        BookEntry.COLUMN_BOOK_SUPPLIER_NAME,
-                        BookEntry.COLUMN_BOOK_SUPPLIER_PHONE,
-                        BookEntry.COLUMN_BOOK_PRICE,
-                        BookEntry.COLUMN_BOOK_QUANTITY},
-                null, null, null);
+                null,null, null, null);
     }
 
     @Override
@@ -502,13 +503,18 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 // User clicked the "add" button, so get the amount of books entered to the editText
                 int booksToAdd = Integer.valueOf(quantityEditText.getText().toString());
                 // Verify the new quantity isn't negative
-                if (mQuantityInt + booksToAdd < 0) {
+                int currentQuantity = mQuantityInt;
+                // If the mQuantityInt is -1 (as indicator of nothing set yet) treat it 0
+                if (currentQuantity == -1){
+                    currentQuantity = 0;
+                }
+                if (currentQuantity + booksToAdd < 0) {
                     Toast.makeText(EditorActivity.this, getResources().getString(R.string.msg_no_more_books).toString(),
                             Toast.LENGTH_LONG).show();
                     dialog.dismiss();
                 } else {
                     // Update the mQuantityInt
-                    mQuantityInt = mQuantityInt + booksToAdd;
+                    mQuantityInt = currentQuantity + booksToAdd;
                     // Update the quantity TextView
                     mQuantityTextView.setText(String.valueOf(mQuantityInt));
                 }

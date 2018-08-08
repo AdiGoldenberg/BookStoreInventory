@@ -5,6 +5,7 @@
     <color name="colorAccent">#5ddef4</color>
     <color name="book_title_text">#2B3D4D</color>
     <color name="book_info_text">#AEB6BD</color>
+    <color name="book_sold_text">#666666</color>
     <color name="editorColorPrimary">#2D3640</color>
     <color name="editorColorPrimaryDark">#394450</color>
 </resources>

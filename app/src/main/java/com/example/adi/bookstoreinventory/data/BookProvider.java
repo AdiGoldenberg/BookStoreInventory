@@ -26,12 +26,14 @@ public class BookProvider extends ContentProvider {
     // The values of the ints is irrelevant as long as they're negative
     public static final String INSERT_NAME_ERROR = "name error";
     public static final String INSERT_SUPPLIER_ERROR = "supplier error";
+    public static final String INSERT_PHONE_ERROR = "phone error";
     public static final String INSERT_PRICE_ERROR = "price error";
     public static final String INSERT_QUANTITY_ERROR = "quantity error";
     public static final int UPDATE_NAME_ERROR = -1;
     public static final int UPDATE_SUPPLIER_ERROR = -2;
-    public static final int UPDATE_PRICE_ERROR = -3;
-    public static final int UPDATE_QUANTITY_ERROR = -4;
+    public static final int UPDATE_PHONE_ERROR = -3;
+    public static final int UPDATE_PRICE_ERROR = -4;
+    public static final int UPDATE_QUANTITY_ERROR = -5;
     /**
      * URI matcher code for the content URI for the books table
      */
@@ -152,6 +154,8 @@ public class BookProvider extends ContentProvider {
                     return Uri.parse(INSERT_NAME_ERROR);
                 case INSERT_SUPPLIER_ERROR:
                     return Uri.parse(INSERT_SUPPLIER_ERROR);
+                case INSERT_PHONE_ERROR:
+                    return Uri.parse(INSERT_PHONE_ERROR);
                 case INSERT_PRICE_ERROR:
                     return Uri.parse(INSERT_PRICE_ERROR);
                 case INSERT_QUANTITY_ERROR:
@@ -217,6 +221,8 @@ public class BookProvider extends ContentProvider {
                     return UPDATE_NAME_ERROR;
                 case INSERT_SUPPLIER_ERROR:
                     return UPDATE_SUPPLIER_ERROR;
+                case INSERT_PHONE_ERROR:
+                    return UPDATE_PHONE_ERROR;
                 case INSERT_PRICE_ERROR:
                     return UPDATE_PRICE_ERROR;
                 case INSERT_QUANTITY_ERROR:
@@ -240,6 +246,11 @@ public class BookProvider extends ContentProvider {
         String supplier = values.getAsString(BookEntry.COLUMN_BOOK_SUPPLIER_NAME);
         if (supplier == null || TextUtils.isEmpty(supplier)) {
             throw new IllegalArgumentException(INSERT_SUPPLIER_ERROR);
+        }
+        // Check that the phone is not null
+        String phone = values.getAsString(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE);
+        if (phone == null || TextUtils.isEmpty(phone)) {
+            throw new IllegalArgumentException(INSERT_PHONE_ERROR);
         }
         // Check that the price isn't a negative number (though it can be null)
         Integer price = values.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
@@ -271,10 +282,17 @@ public class BookProvider extends ContentProvider {
                 throw new IllegalArgumentException(INSERT_SUPPLIER_ERROR);
             }
         }
+        // Check that the supplier's phone is not null
+        if (values.containsKey(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE)) {
+            String phone = values.getAsString(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE);
+            if (phone == null) {
+                throw new IllegalArgumentException(INSERT_PHONE_ERROR);
+            }
+        }
         // Check that the price isn't a negative number (though it can be null)
         if (values.containsKey(BookEntry.COLUMN_BOOK_PRICE)) {
             Integer price = values.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
-            if (price != null && price < 0) {
+            if (price == null || price < 0) {
                 throw new IllegalArgumentException(INSERT_PRICE_ERROR);
             }
         }

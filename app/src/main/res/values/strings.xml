@@ -66,7 +66,7 @@
     <string name="hint_price">Price</string>
 
     <!-- Text for initial quantity in the editor [CHAR LIMIT=3] -->
-    <string name="edit_initial_quantity">0</string>
+    <string name="edit_initial_quantity">None</string>
 
     <!-- Text for quantity minus button in the editor [CHAR LIMIT=3] -->
     <string name="edit_minus">-</string>
@@ -137,9 +137,12 @@
     <!-- Toast message alerting that the user need to input a supplier before saving the book -->
     <string name="input_supplier_error">Enter book supplier.</string>
 
-    <!-- Toast message alerting that the price can't be negative -->
-    <string name="input_price_error">Negative price not allowed.</string>
+    <!-- Toast message alerting that the user need to input the supplier's phone before saving the book -->
+    <string name="input_phone_error">Enter supplier phone.</string>
+
+    <!-- Toast message alerting that a price must be set -->
+    <string name="input_price_error">Enter book price.</string>
 
     <!-- Toast message alerting that the price can't be negative -->
-    <string name="input_quantity_error">Negative quantity not allowed.</string>
+    <string name="input_quantity_error">Enter book quantity.</string>
 </resources>

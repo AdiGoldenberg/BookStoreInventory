@@ -26,7 +26,7 @@ public class BookDbHelper extends SQLiteOpenHelper {
                     BookEntry.COLUMN_BOOK_PRICE + " INTEGER DEFAULT 0, " +
                     BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER DEFAULT 0, " +
                     BookEntry.COLUMN_BOOK_SUPPLIER_NAME + " TEXT NOT NULL, " +
-                    BookEntry.COLUMN_BOOK_SUPPLIER_PHONE + " TEXT" +
+                    BookEntry.COLUMN_BOOK_SUPPLIER_PHONE + " TEXT NOT NULL" +
                     ");";
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + BookEntry.TABLE_NAME;
 

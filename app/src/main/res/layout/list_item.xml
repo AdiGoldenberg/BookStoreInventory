@@ -45,7 +45,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:text="@string/sold"
-            android:textColor="@color/book_info_text"/>
+            android:textColor="@color/book_sold_text"/>
     </LinearLayout>
 
 </LinearLayout>
